@@ -1,5 +1,5 @@
 // Add your code here
-const formData = {
+/*const formData = {
     dogName: "Byron",
     dogBreed: "Poodle",
   };
@@ -23,7 +23,7 @@ const formData = {
     .catch(function (error) {
       alert("Bad things! Ragnarők!");
       console.log(error.message);
-    });
+    });*/
 
     function submitData( name, email ) {
         return fetch( 'http://localhost:3000/users', {
@@ -37,13 +37,8 @@ const formData = {
               email
             } )
           } )
-          .then( function ( response ) {
-            return response.json()
-          } )
-          .then( function ( object ) {
-            document.body.innerHTML = object[ 'id' ]
-          } )
-          .catch( function ( error ) {
-            document.body.innerHTML = error.message
-          } )
-      }
+          .then(res => res.json())
+          .then(obj => document.body.innerHTML = obj[ 'id' ])
+          .catch(err => document.body.innerHTML = err.message)
+          }
+      
